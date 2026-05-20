@@ -2,12 +2,29 @@
   "slug": "shanto-claude-design-portfolio",
   "publicTitle": "Shanto Mathew | AI Security Automation Portfolio",
   "archetype": "editorial-systems-portfolio",
-  "status": "local-worker-b-build",
+  "status": "production-verified",
   "routes": ["/", "/api/health", "/api/contact"],
-  "productionUrl": null,
-  "repoUrl": null,
+  "productionUrl": "https://shanto-claude-design-portfolio.netlify.app",
+  "repoUrl": "https://github.com/shanto12/shanto-claude-design-portfolio",
+  "netlify": {
+    "siteId": "b46923c6-13ef-4acf-bea7-91ef1c4b0f4c",
+    "siteName": "shanto-claude-design-portfolio",
+    "productionDeployId": "6a0e47dcfabb57588fad07dd",
+    "verifiedAtCentral": "2026-05-20 06:47 PM CDT"
+  },
   "previewPolicy": "public-safe-profile-and-demo-links",
   "dataPolicy": "user-provided-facts-only",
   "packageMode": "portfolio-and-proof-surface",
-  "disclaimer": "Independent portfolio site. Public-safe facts only; no phone, exact address, identity documents, private recruiter details, compensation, API keys, or client-sensitive details."
+  "disclaimer": "Independent portfolio site. Public-safe facts only; no phone, exact address, identity documents, private recruiter details, compensation, API keys, or client-sensitive details.",
+  "demoLinks": [
+    "https://security-ops-playbook-analyzer.netlify.app/",
+    "https://grok-medical-frontdesk.netlify.app/",
+    "https://grok-experience-navigator.netlify.app/",
+    "https://nocturne-ai-hotel.netlify.app/",
+    "https://y22-ai-sales-roleplay.netlify.app/",
+    "https://elevenlabs-forward-deployed-engineer.netlify.app/",
+    "https://vapi-pilot-command-center.netlify.app/",
+    "https://gp-agentic-revenue-ops.netlify.app/",
+    "https://flux-atlas-demo.netlify.app/"
+  ]
 }

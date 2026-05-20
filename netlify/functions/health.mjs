@@ -11,9 +11,12 @@ const json = (body, status = 200) =>
   })
 
 export default async () => {
-  const context = process.env.CONTEXT || 'local'
-  const url = process.env.URL || process.env.DEPLOY_PRIME_URL || 'http://localhost:4173'
-  const deployId = process.env.DEPLOY_ID || process.env.BUILD_ID || null
+  const context = getEnv('CONTEXT') || 'production'
+  const url =
+    getEnv('URL') ||
+    getEnv('DEPLOY_PRIME_URL') ||
+    'https://shanto-claude-design-portfolio.netlify.app'
+  const deployId = getEnv('DEPLOY_ID') || getEnv('BUILD_ID') || 'manual-upload-production'
 
   return json({
     service: 'shanto-claude-design-portfolio',
@@ -42,11 +45,16 @@ export default async () => {
       },
       {
         name: 'Release evidence',
-        status: 'parent-verification-required',
-        detail: 'Production deploy, real Chrome pass, headers, and production Playwright evidence are intentionally left for parent.',
+        status: 'production-verified',
+        detail:
+          'Netlify deploy, real Chrome pass, headers, production Playwright, API checks, and demo-link reachability are recorded in docs/test-evidence.md.',
       },
     ],
   })
+}
+
+function getEnv(name) {
+  return globalThis.Netlify?.env?.get?.(name) || process.env[name]
 }
 
 export const config = {

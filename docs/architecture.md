@@ -16,9 +16,9 @@
 
 ## Backend modules
 
-- `netlify/functions/health.mjs`: deterministic JSON health response with capabilities, deploy context, and production verification reminder.
+- `netlify/functions/health.mjs`: deterministic JSON health response with capabilities, deploy context, and production verification status.
 - `netlify/functions/contact.mjs`: validates contact payloads, rejects obvious sensitive terms, logs only metadata, and returns next-step guidance.
 
 ## Verification boundary
 
-Worker B owns local implementation verification only. Production deployment, real Chrome profile verification, production headers, Netlify logs, and production evidence matrix completion are parent responsibilities.
+Production verification was completed on May 20, 2026 Central Time against `https://shanto-claude-design-portfolio.netlify.app` on deploy `6a0e47dcfabb57588fad07dd`. The release evidence covers Netlify deploy readiness, Playwright desktop/mobile production workflows, real Chrome profile interaction, `/api/health`, `/api/contact`, security headers, CSP, production audit, and outbound demo-link reachability. The explicit evidence matrix is maintained in `docs/test-evidence.md`.

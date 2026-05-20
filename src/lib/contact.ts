@@ -52,16 +52,6 @@ export function validateContactPayload(payload: ContactPayload): ContactResult |
   return null
 }
 
-const encodeForm = (payload: ContactPayload) =>
-  new URLSearchParams({
-    'form-name': 'portfolio-contact',
-    name: payload.name,
-    email: payload.email,
-    company: payload.company,
-    interest: payload.interest,
-    message: payload.message,
-  }).toString()
-
 function localSuccess(): ContactResult {
   return {
     ok: true,
@@ -87,21 +77,6 @@ export async function submitContact(payload: ContactPayload): Promise<ContactRes
     if (!response.ok || !apiResult.ok) return apiResult
   } catch {
     return localSuccess()
-  }
-
-  if (!apiResult.ok) return apiResult
-
-  try {
-    await fetch('/', {
-      method: 'POST',
-      headers: { 'content-type': 'application/x-www-form-urlencoded' },
-      body: encodeForm(payload),
-    })
-  } catch {
-    return {
-      ...apiResult,
-      message: 'Contact API validated the request. Netlify form capture will run in production.',
-    }
   }
 
   return apiResult

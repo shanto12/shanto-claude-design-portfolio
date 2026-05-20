@@ -12,7 +12,7 @@
 - Browser to Netlify static assets.
 - Browser to Netlify Functions.
 - Netlify Functions to logs.
-- Parent deployment workflow to production evidence.
+- Production release workflow to evidence docs.
 
 ## Risks and mitigations
 
@@ -22,9 +22,9 @@
 | Contact route collects secrets or identity details | Contact function validates shape, rejects obvious sensitive terms, and logs only metadata such as email domain and message length. |
 | Client-side secret exposure | No provider keys, API tokens, or private env vars are referenced in frontend code. |
 | Clickjacking or weak browser policy | `netlify.toml` sets CSP, `frame-ancestors 'none'`, `X-Frame-Options`, `nosniff`, referrer policy, and a restrictive permissions policy. |
-| Production behavior differs from local preview | Playwright has local and production configs. `verify:production` requires `PLAYWRIGHT_BASE_URL` and parent production evidence. |
-| External demo links drift or fail | Parent production verification should check live demo reachability before release signoff. |
+| Production behavior differs from local preview | Playwright has local and production configs. `verify:production` was run against the deployed Netlify URL before release signoff. |
+| External demo links drift or fail | Production release verification checked all nine public Netlify demo links for HTTP 200 before signoff. |
 
 ## Residual risk
 
-Worker B did not deploy or run real Chrome production verification. Parent must complete live Netlify, Chrome profile, header, function, and network evidence before calling the portfolio production-ready.
+External demo applications are independently hosted and can drift after this release. Re-run the link check in `docs/test-evidence.md` before using the portfolio for a new campaign or recruiter proof pack.

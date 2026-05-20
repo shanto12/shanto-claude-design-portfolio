@@ -156,17 +156,17 @@ export const evidenceItems: EvidenceItem[] = [
   {
     label: 'Frontend release gate',
     method: 'Vitest, TypeScript, ESLint, Vite build',
-    status: 'Local Worker B target',
+    status: 'Production verified',
   },
   {
     label: 'User journey coverage',
     method: 'Playwright desktop and mobile pass',
-    status: 'Local Worker B target',
+    status: 'Production verified',
   },
   {
     label: 'Backend contract',
     method: '/api/health and /api/contact Netlify Functions',
-    status: 'Implemented for parent deploy verification',
+    status: 'Production functions verified',
   },
   {
     label: 'Sensitive data boundary',

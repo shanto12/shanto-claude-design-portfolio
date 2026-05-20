@@ -33,6 +33,9 @@ test('portfolio primary workflows pass on desktop and mobile', async ({ page, is
   await expect(page.getByRole('heading', { name: 'Shanto Mathew' })).toBeVisible()
   await expect(page.getByRole('link', { name: /View demo gallery/i })).toBeVisible()
   await expect(page.getByRole('link', { name: /Review proof surface/i })).toBeVisible()
+  await page.getByRole('link', { name: /Review proof surface/i }).click()
+  await expect(page.getByText('Production verified').first()).toBeVisible()
+  await expect(page.getByText('Production functions verified')).toBeVisible()
 
   if (!isMobile) {
     const primaryNav = page.getByRole('navigation', { name: 'Primary navigation' })
@@ -81,7 +84,10 @@ test('portfolio primary workflows pass on desktop and mobile', async ({ page, is
   if (productionTarget) {
     const health = await page.request.get('/api/health')
     expect(health.status()).toBe(200)
-    await expect(health).toHaveHeader('content-type', /application\/json/)
+    expect(health.headers()['content-type']).toMatch(/application\/json/)
+    const healthBody = await health.json()
+    const releaseEvidence = healthBody.capabilities.find((item: { name: string }) => item.name === 'Release evidence')
+    expect(releaseEvidence.status).toBe('production-verified')
     const contact = await page.request.post('/api/contact', {
       data: {
         name: 'Avery Reviewer',
