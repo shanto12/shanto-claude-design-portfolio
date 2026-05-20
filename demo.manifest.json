@@ -1,0 +1,13 @@
+{
+  "slug": "shanto-claude-design-portfolio",
+  "publicTitle": "Shanto Mathew | AI Security Automation Portfolio",
+  "archetype": "editorial-systems-portfolio",
+  "status": "local-worker-b-build",
+  "routes": ["/", "/api/health", "/api/contact"],
+  "productionUrl": null,
+  "repoUrl": null,
+  "previewPolicy": "public-safe-profile-and-demo-links",
+  "dataPolicy": "user-provided-facts-only",
+  "packageMode": "portfolio-and-proof-surface",
+  "disclaimer": "Independent portfolio site. Public-safe facts only; no phone, exact address, identity documents, private recruiter details, compensation, API keys, or client-sensitive details."
+}
